@@ -8,15 +8,15 @@ const connection = mysql.createConnection({
   database: 'world',
 });
 
-// Connect to MySQL
+// creating connection
 connection.connect((err) => {
   if (err) {
     throw err;
   }
-  console.log('Connected to MySql database');
+  console.log('Connection successful!');
 });
 
-const worldQuery = fs.readFileSync('../world.sql', 'utf8'); // reading SQL file
+const worldQuery = fs.readFileSync('../world.sql', 'utf8'); // reading world.sql file
 
 const queries = [
   worldQuery,
