@@ -1,0 +1,14 @@
+{
+  "name": "prep-exercise",
+  "version": "1.0.0",
+  "description": "recipes database",
+  "main": "recipes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fressia Barrios",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
