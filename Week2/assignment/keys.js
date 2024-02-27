@@ -7,7 +7,6 @@ const connection = mysql.createConnection({
   database: 'author_info',
 });
 
-// connect to MySQL
 connection.connect((err) => {
   if (err) throw err;
   console.log('Connected to database');
@@ -35,3 +34,4 @@ connection.query('ALTER TABLE authors ADD COLUMN mentor INT, ADD CONSTRAINT fk_m
 });  
 
 connection.end();
+

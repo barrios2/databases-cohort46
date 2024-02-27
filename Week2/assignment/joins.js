@@ -17,10 +17,10 @@ connection.query('SELECT a.author_name AS author, m.author_name AS mentor FROM a
   console.log('Name of all authors and the name of their mentors', results);
 });
 
-connection.query('SELECT a.*, p.paper_title FROM authors a JOIN author_papers ap ON a.author_id = ap.author_id JOIN research_papers p ON ap.paper_id = p.paper_id', (err, results) => {
+connection.query('SELECT a.*, rp.paper_title FROM authors a JOIN author_papers ap ON a.author_id = ap.author_id JOIN research_papers rp ON ap.paper_id = rp.paper_id', (err, results) => {
   if (err) throw err;
   console.log('All columns from authors table and their published papers', results);
 });
 
-
 connection.end();
+

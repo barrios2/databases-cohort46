@@ -18,7 +18,7 @@ const authors = [
 ];
 
 // random list of books instead of papers :D
-// also not sure what to put under conference - since we aren't using any queries to base it on that info I will just go with 'none' 
+// also not sure what to put under conference - since we aren't using any queries to base it on that info I will just go with 'none'
 const papers = [
   ['Sister Outsider', 'none', '1984-06-02'],
   ['The Bluest Eye', 'none', '1970-11-01'],
@@ -83,7 +83,13 @@ const authorPapers = [
   [2, 27],
   [3, 28],
   [5, 29],
-  [7, 30] 
+  [7, 30],
+  [5, 2],
+  [6, 1],
+  [2, 8],
+  [3, 12],
+  [5, 3],
+  [7, 16]
 ]
 
 module.exports = {
@@ -91,3 +97,4 @@ module.exports = {
   papers,
   authorPapers
 };
+

@@ -39,7 +39,8 @@ createQuery(`
   );`
 );
 
-createQuery('SET FOREIGN_KEY_CHECKS=0');
+// temporarily turns off checks for foreign keys - https://www.sqlines.com/mysql/set_foreign_key_checks
+createQuery('SET FOREIGN_KEY_CHECKS=0')
 
 connection.query('INSERT INTO authors (author_name, university, date_of_birth, h_index, gender, mentor) VALUES ?', [authors], (err, results) => {
   if (err) throw err;
@@ -51,14 +52,13 @@ connection.query('INSERT INTO research_papers (paper_title, conference, publish_
   console.log('Paper data inserted');
 });
 
+// turns on foreign keys checks
+createQuery('SET FOREIGN_KEY_CHECKS=1')
 
 connection.query('INSERT INTO author_papers (author_id, paper_id) VALUES ?', [authorPapers], (err, results) => {
   if (err) throw err;
   console.log('Author papers inserted');
 });
 
-createQuery('SET FOREIGN_KEY_CHECKS=1')
-
 connection.end();
-
 
