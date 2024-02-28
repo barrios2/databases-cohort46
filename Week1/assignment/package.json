@@ -1,0 +1,14 @@
+{
+  "name": "assignment-week1-database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "meetup-database.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fressia Barrios",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
