@@ -8,7 +8,6 @@ const connection = mysql.createConnection({
   database: 'world',
 });
 
-// creating connection
 connection.connect((err) => {
   if (err) {
     throw err;
@@ -39,7 +38,7 @@ function executeQueries(queries) {
         console.error(`Error ${err.message}`);
         return;
       }
-      console.log(results);
+      console.log(`Results for: ${query}`, results);
     });
   });
   
