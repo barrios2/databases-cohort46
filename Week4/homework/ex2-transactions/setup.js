@@ -1,6 +1,16 @@
-async function setup(client, collection) {
+const { MongoClient } = require('mongodb');
+require('dotenv').config();
+
+const databaseName = process.env.DATABASE_NAME;
+const collectionName = process.env.COLLECTION_TRANSACTIONS;
+
+async function setup() {
+  
+  const client = new MongoClient(process.env.MONGODB_URL);
 
   try {
+
+    const collection = client.db(databaseName).collection(collectionName);
 
     await client.connect();
     console.log('Connected to MongoDB');
@@ -9,9 +19,9 @@ async function setup(client, collection) {
     await collection.deleteMany({});
 
     const accountInfo = [
-      { account_number: 101, balance: 5000, account_changes: [ { change_number, amount, changed_date, remark } ] },
-      { account_number: 102, balance: 10000, account_changes: [ { change_number, amount, changed_date, remark } ] },
-      { account_number: 103, balance: 70500, account_changes: [ { change_number, amount, changed_date, remark } ] }
+      { account_number: 101, balance: 5000, account_changes: [] },
+      { account_number: 102, balance: 10000, account_changes: [] },
+      { account_number: 103, balance: 70500, account_changes: [] }
     ];
 
     await collection.insertMany(accountInfo);
