@@ -32,10 +32,11 @@ createQuery(`
 createQuery(`
   CREATE TABLE IF NOT EXISTS author_papers (
     author_id INT,
-    paper_id INT,
+    paper_id INT NULL,
     FOREIGN KEY (author_id) REFERENCES authors(author_id),
     FOREIGN KEY (paper_id) REFERENCES research_papers(paper_id),
-    PRIMARY KEY (author_id, paper_id)
+    PRIMARY KEY (author_id),
+    UNIQUE (author_id, paper_id)
   );`
 );
 
@@ -55,10 +56,9 @@ connection.query('INSERT INTO research_papers (paper_title, conference, publish_
 // turns on foreign keys checks
 createQuery('SET FOREIGN_KEY_CHECKS=1')
 
-connection.query('INSERT INTO author_papers (author_id, paper_id) VALUES ?', [authorPapers], (err, results) => {
+connection.query('INSERT IGNORE INTO author_papers (author_id, paper_id) VALUES ?', [authorPapers], (err, results) => {
   if (err) throw err;
   console.log('Author papers inserted');
 });
 
 connection.end();
-
