@@ -6,8 +6,8 @@ More info here: https://portswigger.net/web-security/sql-injection#how-to-preven
 function getPopulation(Country, name, code, cb) {
   // assuming that connection to the database is established and stored as conn
   conn.query(
-    `SELECT Population FROM ${Country} WHERE Name = ? and code = ?`,
-    [name, code],
+    `SELECT Population FROM ?? WHERE Name = ? and code = ?`,
+    [Country, name, code],
     function (err, result) {
       if (err) return cb(err);
       if (result.length == 0) return cb(new Error("Not found"));

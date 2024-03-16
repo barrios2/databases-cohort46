@@ -43,3 +43,8 @@ Attendance table:
 - attendance_id (PK)
 - member_id (FK - reference Members table)
 - dinner_id (FK - reference Dinners table)
+
+Dinners-foods table:
+
+- dinner_id (FK - reference Dinners table)
+- food_code (FK - reference Foods table)
